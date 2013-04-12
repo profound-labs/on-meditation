@@ -1,0 +1,9 @@
+*.swp
+*.aux
+*.log
+*.toc
+*~
+book.main.pdf
+cover.pdf
+src-for-epub/
+pdf-keep/proofing/

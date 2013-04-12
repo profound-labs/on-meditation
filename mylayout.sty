@@ -1,0 +1,319 @@
+\ProvidesPackage{mylayout}
+
+\usepackage{nag}
+
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage[cmyk]{xcolor}
+\usepackage[british]{babel}
+\selectlanguage{british}
+
+\hyphenation{knowing immanent action gener-ous society attain impor-tant under-stand ordi-nary expect secu-rity deserve unsat-is-fac-tory doing human writing tribal inspir-ation anticip-ation sensory enlight-en-ment crit-icism}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\input{./fontsdef.fd}
+
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./src-images/}}
+\usepackage{eso-pic}
+\usepackage{ccicons}
+
+\usepackage{geometry}
+\geometry{
+paperwidth=5.25in,
+paperheight=8in,
+textwidth=90mm,
+textheight=165mm,
+outer=20mm
+}
+\setlength{\stockwidth}{5.25in}
+\setlength{\stockheight}{8in}
+
+\setlength{\headheight}{2.5\baselineskip}
+\setlength{\headsep}{1.5\baselineskip}
+
+\addtolength{\headsep}{\baselineskip}
+% \addtolength{\footskip}{\baselineskip}
+\addtolength{\textheight}{-3\baselineskip}
+
+\usepackage{hyperref}
+\hypersetup{
+  bookmarks=true,
+  bookmarksopen=true,
+  bookmarksopenlevel=1,
+  pdftoolbar=true,
+  pdfmenubar=true,
+  colorlinks=true,
+  unicode=true,
+  hyperindex=true,
+  linkcolor=textbody,
+  citecolor=textbody,
+  filecolor=textbody,
+  urlcolor=textbody
+}
+\usepackage{bookmark}
+\bookmarksetup{open=false}
+
+\setcounter{secnumdepth}{0}
+\definecolor{textbody}{gray}{0.15}
+\setlength{\parindent}{17pt}
+
+% ====== dealing out some penalties ======
+
+\parfillskip 0pt plus 0.8\textwidth
+
+% \clubpenalty=9996
+% \tolerance=1414
+% \widowpenalty=8500
+% \brokenpenalty=6000
+
+% \tolerance 1414
+% \hbadness 1414
+% \emergencystretch 1.5em
+% \hfuzz 0.3pt
+% \vfuzz \hfuzz
+% \widowpenalty=10000
+% \finalhyphendemerits=4000
+
+% ====== end of penalties ======
+
+\renewcommand{\rmdefault}{gentium}
+
+% ====== custom macros ======
+
+\newcommand*{\titlepagetitlesize}{\@setfontsize\titlepagetitlesize{22}{25}}
+\newcommand*{\titlepageauthorsize}{\@setfontsize\titlepageauthorsize{12}{15}}
+
+\newcommand*{\titlepagelinksize}{\@setfontsize\titlepagelinksize{10}{12}}
+
+\newcommand*{\ccdetailssize}{\@setfontsize\ccdetailssize{8}{9.5}}
+
+\newcommand{\pali}[1]{\textit{#1}}
+
+% \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+%   \hbox{}\thispagestyle{cleared}%
+%   \newpage\mbox{}\thispagestyle{empty}\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \thispagestyle{empty}\hbox{}\newpage\if@twocolumn\thispagestyle{empty}\hbox{}\newpage\fi\fi\fi}
+
+\def\dropcapsfont{\fontfamily{gentium}\fontseries{m}\fontshape{n}\selectfont}
+\newcommand\firstcapsize{\@setfontsize\firstcapsize{13}{25}}
+\newcommand\dropcapsize{\@setfontsize\dropcapsize{10}{13.6}}
+\definecolor{dropcaps}{gray}{0.2}
+\definecolor{firstcaps}{gray}{0.2}
+\sodef\soDropcapsA{}{.1em}{.3em plus.1em}{.4em plus.1em minus.1em}
+\sodef\soDropcapsB{}{.1em}{.3em plus.1em}{.4em plus.1em minus.1em}
+
+\newcommand{\dropcaps}[2]{%
+  {\dropcapsfont\firstcapsize\color{firstcaps}\soDropcapsA{#1}}%
+  {\hspace{.1em}}%
+  {\dropcapsfont\dropcapsize\color{dropcaps}\soDropcapsB{\MakeUppercase{#2}}}%
+}
+
+\renewcommand{\normalsize}{%
+%    \@setfontsize\normalsize\@xipt{13.6}%
+   \@setfontsize\normalsize{10.5}{15}%
+   \abovedisplayskip 11\p@ \@plus3\p@ \@minus6\p@
+   \abovedisplayshortskip \z@ \@plus3\p@
+   \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \color{textbody}
+   \let\@listi\@listI}
+
+\newcommand{\smaller}{%
+   \@setfontsize\small{9}{11}
+   \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
+   \abovedisplayshortskip \z@ \@plus3\p@
+   \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+   \def\@listi{\leftmargin\leftmargini
+               \topsep 6\p@ \@plus2\p@ \@minus2\p@
+               \parsep 3\p@ \@plus2\p@ \@minus\p@
+               \itemsep \parsep
+%%               \itemindent\z@
+              }%
+   \belowdisplayskip \abovedisplayskip
+}
+
+\newenvironment{packeditemize}%
+{\begin{itemize}%
+  \setlength{\itemsep}{1pt}%
+  \setlength{\parskip}{0pt}%
+  \setlength{\parsep}{0pt}%
+}{\end{itemize}}
+
+% ====== end of custom macros ======
+
+% ====== TOC settings ======
+
+% \maxtocdepth{chapter}
+
+\newlength{\toctopskip}
+\setlength{\toctopskip}{27pt}
+\addtolength{\toctopskip}{2\baselineskip}
+
+\renewcommand{\printtoctitle}[1]{%
+\raggedright\vspace*{\toctopskip}\hspace*{17pt}\parbox{0.8\linewidth}{\raggedright\chaptitlefont\color{chapter}\soChapter{CONTENTS}}}
+
+\renewcommand{\cftchapterfont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\large\color{chapter}}
+\renewcommand{\cftchapterpagefont}{\fontfamily{gentium}\fontseries{m}\fontshape{n}\selectfont\normalsize\color{chapter}}
+\renewcommand{\cftchapterpresnum}[1]{}
+\setlength{\cftchapternumwidth}{0pt}
+
+% ====== end of TOC settings ======
+
+% ====== page styles ======
+
+% \sodef\soSection{}{.1em}{.5em plus.1em}{.1em plus.1em minus.1em}
+
+% \makepagestyle{customheadings}
+%   \makeheadrule{customheadings}{\textwidth}{0.25pt}
+%   \makepsmarks{customheadings}{%
+%     \def\chaptermark##1{\markboth{\memUChead{##1}}{}}%
+%     \def\tocmark{\markboth{\memUChead{\contentsname}}{\memUChead{\contentsname}}}%
+%     \def\lofmark{\markboth{\memUChead{\listfigurename}}{\memUChead{\listfigurename}}}%
+%     \def\lotmark{\markboth{\memUChead{\listtablename}}{\memUChead{\listtablename}}}%
+%     \def\bibmark{\markboth{\memUChead{\bibname}}{\memUChead{\bibname}}}%
+%     \def\indexmark{\markboth{\memUChead{\indexname}}{\memUChead{\indexname}}}%
+%     \def\sectionmark##1{\markright{\memUChead{##1}}}}
+%   \makepsmarks{customheadings}{%
+%     \createmark{chapter}{left}{nonumber}{}{}
+%     \createmark{section}{right}{nonumber}{}{}
+%     \createplainmark{toc}{both}{\contentsname}
+%     \createplainmark{lof}{both}{\listfigurename}
+%     \createplainmark{lot}{both}{\listtablename}
+%     \createplainmark{bib}{both}{\bibname}
+%     \createplainmark{index}{both}{\indexname}
+%     \createplainmark{glossary}{both}{\glossaryname}
+%   }
+%   \makeevenhead{customheadings}{}{\fontfamily{laudatio-light}\fontseries{m}\fontshape{n}\selectfont\tiny\leftmark}{}
+%   \makeoddhead{customheadings}{}{\fontfamily{laudatio-light}\fontseries{m}\fontshape{n}\selectfont\tiny\rightmark}{}
+%   \makeevenfoot{customheadings}{}{\thepage}{}
+%   \makeoddfoot{customheadings}{}{\thepage}{}
+% 
+% \pagestyle{customheadings}
+
+
+\makepagestyle{customheadings}
+  \makepsmarks{customheadings}{%
+    \def\chaptermark##1{\markboth{\memUChead{##1}}{}}%
+    \def\tocmark{\markboth{\memUChead{\contentsname}}{\memUChead{\contentsname}}}%
+    \def\lofmark{\markboth{\memUChead{\listfigurename}}{\memUChead{\listfigurename}}}%
+    \def\lotmark{\markboth{\memUChead{\listtablename}}{\memUChead{\listtablename}}}%
+    \def\bibmark{\markboth{\memUChead{\bibname}}{\memUChead{\bibname}}}%
+    \def\indexmark{\markboth{\memUChead{\indexname}}{\memUChead{\indexname}}}%
+    \def\sectionmark##1{\markright{\memUChead{##1}}}}
+  \makepsmarks{customheadings}{%
+    \nouppercaseheads
+    \createmark{chapter}{left}{nonumber}{}{}
+    \createmark{section}{right}{nonumber}{}{}
+    \createplainmark{toc}{both}{\contentsname}
+    \createplainmark{lof}{both}{\listfigurename}
+    \createplainmark{lot}{both}{\listtablename}
+    \createplainmark{bib}{both}{\bibname}
+    \createplainmark{index}{both}{\indexname}
+    \createplainmark{glossary}{both}{\glossaryname}
+  }
+  \makeevenhead{customheadings}{}{\fontfamily{arno-pro}\fontseries{m}\fontshape{it}\selectfont\small \bookTitle}{}
+  \makeoddhead{customheadings}{}{\fontfamily{arno-pro}\fontseries{m}\fontshape{it}\selectfont\small \leftmark}{}
+  \makeevenfoot{customheadings}{}{{\color{textbody}\thepage}}{}
+  \makeoddfoot{customheadings}{}{{\color{textbody}\thepage}}{}
+
+\pagestyle{customheadings}
+
+\makepagestyle{customplain}
+  \makepsmarks{customplain}{%
+    \def\chaptermark##1{\markboth{\memUChead{##1}}{}}%
+    \def\tocmark{\markboth{\memUChead{\contentsname}}{\memUChead{\contentsname}}}%
+    \def\lofmark{\markboth{\memUChead{\listfigurename}}{\memUChead{\listfigurename}}}%
+    \def\lotmark{\markboth{\memUChead{\listtablename}}{\memUChead{\listtablename}}}%
+    \def\bibmark{\markboth{\memUChead{\bibname}}{\memUChead{\bibname}}}%
+    \def\indexmark{\markboth{\memUChead{\indexname}}{\memUChead{\indexname}}}%
+    \def\sectionmark##1{\markright{\memUChead{##1}}}}
+  \makepsmarks{customplain}{%
+    \nouppercaseheads
+    \createmark{chapter}{left}{nonumber}{}{}
+    \createmark{section}{right}{nonumber}{}{}
+    \createplainmark{toc}{both}{\contentsname}
+    \createplainmark{lof}{both}{\listfigurename}
+    \createplainmark{lot}{both}{\listtablename}
+    \createplainmark{bib}{both}{\bibname}
+    \createplainmark{index}{both}{\indexname}
+    \createplainmark{glossary}{both}{\glossaryname}
+  }
+  \makeevenhead{customplain}{}{}{}
+  \makeoddhead{customplain}{}{}{}
+  \makeevenfoot{customplain}{}{{\color{textbody}\thepage}}{}
+  \makeoddfoot{customplain}{}{{\color{textbody}\thepage}}{}
+
+
+% ====== end of page styles ======
+
+% ====== chapter style ======
+
+\sodef\soChapter{}{.1em}{.5em plus.1em}{.1em plus.1em minus.1em}
+\definecolor{chapter}{gray}{0.3}
+\definecolor{chapternum}{gray}{0.8}
+\newcommand{\chapnamesize}{\@setfontsize\chapnamesize{22}{24}}
+\newcommand{\chaptitlesize}{\@setfontsize\chaptitlesize{13}{20}}
+
+\makechapterstyle{customchapter}{%
+  \chapterstyle{default}
+  \setlength{\beforechapskip}{30mm}
+%   \addtolength{\beforechapskip}{\baselineskip}
+  \setlength{\midchapskip}{2\baselineskip}
+  \setlength{\afterchapskip}{2em}
+  \renewcommand*{\chapnumfont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\chapnamesize}
+  \renewcommand*{\chapnamefont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont}
+  \renewcommand*{\chaptitlefont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\chaptitlesize}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\printchapternum}{\chapnumfont\color{chapternum}\raggedright\hspace*{17pt}\thechapter}
+%   \renewcommand*{\printchapternonum}{\centering}
+  \renewcommand*{\printchaptertitle}[1]{%
+    \raggedright\hspace*{17pt}\parbox{0.85\linewidth}{\raggedright\chaptitlefont\color{chapter}\MakeUppercase{\soChapter{##1}}}}
+}
+
+\chapterstyle{customchapter}
+
+\newlength{\chaptopskip}
+\setlength{\chaptopskip}{\beforechapskip}
+
+% ====== end of chapter style ======
+
+% ====== section style ======
+
+\newcommand{\sectiontitlesize}{\@setfontsize\chapnamesize{11.5}{18}}
+\setlength{\beforesecskip}{3\baselineskip}
+
+\setsecheadstyle{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\sectiontitlesize\color{chapter}\MakeUppercase}
+\setsubsecheadstyle{\large\itshape\memRTLraggedright}
+\setsubsubsecheadstyle{\normalsize\itshape\memRTLraggedright}
+
+% ====== end of section style ======
+
+% ====== environments ======
+
+% ====== end of environments ======
+
+% ====== footnote settings ======
+
+\definecolor{footnoterule}{gray}{0.5}
+
+\renewcommand\footnoterule{%
+  \vspace*{\baselineskip}%
+  \kern-3\p@
+  {\color{footnoterule}\hrule height 0.1pt width \columnwidth}
+  \kern2.6\p@}
+
+% ====== settings to go last ======
+
+\usepackage[perpage,multiple,stable,symbol*]{footmisc}
+\DefineFNsymbols*{stars}{{*}{**}{***}{4}{5}{6}{7}{8}{9}{10}}
+\setfnsymbol{stars}
+
+\usepackage{microtype}
+\microtypesetup{
+babel=true,
+final,
+}

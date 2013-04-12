@@ -1,0 +1,104 @@
+% add OpenType AND TRUETYPE fonts with:
+% $ otftotfm -a -e T1-WGL4.enc ./BergamoStd-Regular.otf -fkern -fliga T1--Bergamo-Regular
+% increase letter spacing in the font:
+% $ otftotfm -a -e T1-WGL4.enc ./ArnoPro-Regular.otf -fkern -fliga --letterspacing=500 T1--Arno-Pro-Regular--spaced500
+
+\ProvidesFile{fontsdef.fd}[Font Definitions]
+
+\DeclareFontFamily{T1}{arno-pro}{}
+\DeclareFontShape{T1}{arno-pro}{m}{n}{ <-> T1--Arno-Pro-Regular--spaced20}{}
+\DeclareFontShape{T1}{arno-pro}{m}{it}{ <-> T1--Arno-Pro-Italic--spaced20}{}
+\DeclareFontShape{T1}{arno-pro}{bx}{n}{ <-> T1--Arno-Pro-Semibold--spaced20}{}
+\DeclareFontShape{T1}{arno-pro}{bx}{it}{ <-> T1--Arno-Pro-SemiboldItalic--spaced20}{}
+
+%\DeclareFontFamily{T1}{arno-pro-spaced}{}
+%\DeclareFontShape{T1}{arno-pro-spaced}{m}{n}{ <-> T1--Arno-Pro-Regular--spaced500}{}
+%\DeclareFontShape{T1}{arno-pro-spaced}{m}{n}{ <-> T1--Arno-Pro-Regular--spaced50}{}
+%\DeclareFontShape{T1}{arno-pro-spaced}{m}{n}{ <-> T1--Arno-Pro-Regular--spaced10}{}
+%\DeclareFontShape{T1}{arno-pro-spaced}{m}{n}{ <-> T1--Arno-Pro-Regular--spaced20}{}
+%\DeclareFontShape{T1}{arno-pro-spaced}{m}{it}{ <-> T1--Arno-Pro-Italic--spaced20}{}
+%\DeclareFontShape{T1}{arno-pro-spaced}{bx}{n}{ <-> T1--Arno-Pro-Semibold--spaced20}{}
+%\DeclareFontShape{T1}{arno-pro-spaced}{bx}{it}{ <-> T1--Arno-Pro-SemiboldItalic--spaced20}{}
+
+\DeclareFontFamily{T1}{arno-pro-light}{}
+\DeclareFontShape{T1}{arno-pro-light}{m}{n}{ <-> T1--Arno-Pro-Light-Regular}{}
+\DeclareFontShape{T1}{arno-pro-light}{m}{it}{ <-> T1--Arno-Pro-Light-Italic}{}
+
+\DeclareFontFamily{T1}{albertina}{}
+\DeclareFontShape{T1}{albertina}{m}{n}{ <-> T1--Albertina-Regular}{}
+\DeclareFontShape{T1}{albertina}{m}{it}{ <-> T1--Albertina-Italic}{}
+\DeclareFontShape{T1}{albertina}{bx}{n}{ <-> T1--Albertina-Bold}{}
+\DeclareFontShape{T1}{albertina}{bx}{it}{ <-> T1--Albertina-BoldItalic}{}
+
+%\DeclareFontFamily{T1}{gill-sans-otf}{}
+%\DeclareFontShape{T1}{gill-sans-otf}{m}{n}{ <-> T1--Gill-Sans-Light-Regular--otf-conv}{}
+
+\DeclareFontFamily{T1}{laudatio}{}
+\DeclareFontShape{T1}{laudatio}{m}{n}{ <-> T1--Laudatio-Regular}{}
+\DeclareFontShape{T1}{laudatio}{m}{it}{ <-> T1--Laudatio-Italic}{}
+\DeclareFontShape{T1}{laudatio}{bx}{n}{ <-> T1--Laudatio-Bold}{}
+\DeclareFontShape{T1}{laudatio}{bx}{it}{ <-> T1--Laudatio-BoldItalic}{}
+
+\DeclareFontFamily{T1}{laudatio-light}{}
+\DeclareFontShape{T1}{laudatio-light}{m}{n}{ <-> T1--Laudatio-Light}{}
+\DeclareFontShape{T1}{laudatio-light}{m}{it}{ <-> T1--Laudatio-Light-Italic}{}
+
+\DeclareFontFamily{T1}{laudatio-medium}{}
+\DeclareFontShape{T1}{laudatio-medium}{m}{n}{ <-> T1--Laudatio-Medium}{}
+\DeclareFontShape{T1}{laudatio-medium}{m}{it}{ <-> T1--Laudatio-Medium-Italic}{}
+
+\DeclareFontFamily{T1}{shaker2}{}
+\DeclareFontShape{T1}{shaker2}{m}{n}{ <-> T1--Shaker2-Regular}{}
+\DeclareFontShape{T1}{shaker2}{m}{it}{ <-> T1--Shaker2-Italic}{}
+\DeclareFontShape{T1}{shaker2}{bx}{n}{ <-> T1--Shaker2-Bold}{}
+\DeclareFontShape{T1}{shaker2}{bx}{it}{ <-> T1--Shaker2-BoldItalic}{}
+
+\DeclareFontFamily{T1}{shaker2-light}{}
+\DeclareFontShape{T1}{shaker2-light}{m}{n}{ <-> T1--Shaker2-Light}{}
+\DeclareFontShape{T1}{shaker2-light}{m}{it}{ <-> T1--Shaker2-Light-Italic}{}
+
+\DeclareFontFamily{T1}{athena}{}
+\DeclareFontShape{T1}{athena}{m}{n}{ <-> T1--Athena-Regular}{}
+
+\DeclareFontFamily{T1}{goudy}{}
+\DeclareFontShape{T1}{goudy}{m}{n}{ <-> T1--Goudy-Old-Style-Regular}{}
+\DeclareFontShape{T1}{goudy}{m}{it}{ <-> T1--Goudy-StM-Italic}{}
+\DeclareFontShape{T1}{goudy}{m}{sc}{ <-> T1--Goudy-StM-Regular--smcp}{}
+
+\DeclareFontFamily{T1}{goudy-stm}{}
+\DeclareFontShape{T1}{goudy-stm}{m}{n}{ <-> T1--Goudy-StM-Regular}{}
+\DeclareFontShape{T1}{goudy-stm}{m}{it}{ <-> T1--Goudy-StM-Italic}{}
+\DeclareFontShape{T1}{goudy-stm}{m}{sc}{ <-> T1--Goudy-StM-Regular--smcp}{}
+
+\DeclareFontFamily{T1}{goudy-oldstyle}{}
+\DeclareFontShape{T1}{goudy-oldstyle}{m}{n}{ <-> T1--Goudy-Old-Style-Regular}{}
+
+\DeclareFontFamily{T1}{garamond}{}
+\DeclareFontShape{T1}{garamond}{m}{n}{ <-> T1--Adobe-Garamond-Regular}{}
+
+\DeclareFontFamily{T1}{gentium}{}
+\DeclareFontShape{T1}{gentium}{m}{n}{ <-> T1--Gentium-Regular}{}
+% \DeclareFontShape{T1}{gentium}{m}{n}{ <-> T1--GentiumAlt-Regular}{}
+% \DeclareFontShape{T1}{gentium}{m}{n}{ <-> T1--Gentium-Basic-Regular}{}
+\DeclareFontShape{T1}{gentium}{m}{it}{ <-> T1--Gentium-Italic}{}
+% \DeclareFontShape{T1}{gentium}{m}{it}{ <-> T1--GentiumAlt-Italic}{}
+% \DeclareFontShape{T1}{gentium}{m}{it}{ <-> T1--Gentium-Basic-Italic}{}
+\DeclareFontShape{T1}{gentium}{bx}{n}{ <-> T1--Gentium-Basic-Bold}{}
+\DeclareFontShape{T1}{gentium}{bx}{it}{ <-> T1--Gentium-Basic-BoldItalic}{}
+
+\DeclareFontFamily{T1}{gentium-alt}{}
+\DeclareFontShape{T1}{gentium-alt}{m}{n}{ <-> T1--GentiumAlt-Regular}{}
+% \DeclareFontShape{T1}{gentium}{m}{n}{ <-> T1--Gentium-Basic-Regular}{}
+\DeclareFontShape{T1}{gentium-alt}{m}{it}{ <-> T1--GentiumAlt-Italic}{}
+
+\DeclareFontFamily{T1}{gentium-basic}{}
+\DeclareFontShape{T1}{gentium-basic}{m}{n}{ <-> T1--Gentium-Basic-Regular}{}
+\DeclareFontShape{T1}{gentium-basic}{m}{it}{ <-> T1--Gentium-Basic-Italic}{}
+\DeclareFontShape{T1}{gentium-basic}{bx}{n}{ <-> T1--Gentium-Basic-Bold}{}
+\DeclareFontShape{T1}{gentium-basic}{bx}{it}{ <-> T1--Gentium-Basic-BoldItalic}{}
+
+\DeclareFontFamily{T1}{gentium-book-basic}{}
+\DeclareFontShape{T1}{gentium-book-basic}{m}{n}{ <-> T1--Gentium-Book-Basic-Regular}{}
+\DeclareFontShape{T1}{gentium-book-basic}{m}{it}{ <-> T1--Gentium-Book-Basic-Italic}{}
+\DeclareFontShape{T1}{gentium-book-basic}{bx}{n}{ <-> T1--Gentium-Book-Basic-Bold}{}
+\DeclareFontShape{T1}{gentium-book-basic}{bx}{it}{ <-> T1--Gentium-Book-Basic-BoldItalic}{}
