@@ -4,6 +4,7 @@
 *.toc
 *~
 book.main.pdf
+book_main.pdf
 cover.pdf
 src-for-epub/
 pdf-keep/proofing/

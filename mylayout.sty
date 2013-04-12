@@ -10,11 +10,21 @@
 
 \hyphenation{knowing immanent action gener-ous society attain impor-tant under-stand ordi-nary expect secu-rity deserve unsat-is-fac-tory doing human writing tribal inspir-ation anticip-ation sensory enlight-en-ment crit-icism}
 
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\input{./fontsdef.fd}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures={TeX}}
 
-\usepackage[pdftex]{graphicx}
+\setmainfont[
+  SmallCapsFont = Arno Pro,
+  SmallCapsFeatures= { Ligatures = TeX, Letters = SmallCaps }
+]{Gentium}
+
+\newfontfamily\ArnoProFont{Arno Pro}
+\newfontfamily\GentiumFont[
+  SmallCapsFont = Arno Pro,
+  SmallCapsFeatures= { Ligatures = TeX, Letters = SmallCaps }
+]{Gentium}
+
+\usepackage{graphicx}
 \graphicspath{{./src-images/}}
 \usepackage{eso-pic}
 \usepackage{ccicons}
@@ -78,8 +88,6 @@ outer=20mm
 
 % ====== end of penalties ======
 
-\renewcommand{\rmdefault}{gentium}
-
 % ====== custom macros ======
 
 \newcommand*{\titlepagetitlesize}{\@setfontsize\titlepagetitlesize{22}{25}}
@@ -98,7 +106,7 @@ outer=20mm
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
     \thispagestyle{empty}\hbox{}\newpage\if@twocolumn\thispagestyle{empty}\hbox{}\newpage\fi\fi\fi}
 
-\def\dropcapsfont{\fontfamily{gentium}\fontseries{m}\fontshape{n}\selectfont}
+\def\dropcapsfont{\GentiumFont}
 \newcommand\firstcapsize{\@setfontsize\firstcapsize{13}{25}}
 \newcommand\dropcapsize{\@setfontsize\dropcapsize{10}{13.6}}
 \definecolor{dropcaps}{gray}{0.2}
@@ -156,44 +164,14 @@ outer=20mm
 \renewcommand{\printtoctitle}[1]{%
 \raggedright\vspace*{\toctopskip}\hspace*{17pt}\parbox{0.8\linewidth}{\raggedright\chaptitlefont\color{chapter}\soChapter{CONTENTS}}}
 
-\renewcommand{\cftchapterfont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\large\color{chapter}}
-\renewcommand{\cftchapterpagefont}{\fontfamily{gentium}\fontseries{m}\fontshape{n}\selectfont\normalsize\color{chapter}}
+\renewcommand{\cftchapterfont}{\ArnoProFont\large\color{chapter}}
+\renewcommand{\cftchapterpagefont}{\GentiumFont\normalsize\color{chapter}}
 \renewcommand{\cftchapterpresnum}[1]{}
 \setlength{\cftchapternumwidth}{0pt}
 
 % ====== end of TOC settings ======
 
 % ====== page styles ======
-
-% \sodef\soSection{}{.1em}{.5em plus.1em}{.1em plus.1em minus.1em}
-
-% \makepagestyle{customheadings}
-%   \makeheadrule{customheadings}{\textwidth}{0.25pt}
-%   \makepsmarks{customheadings}{%
-%     \def\chaptermark##1{\markboth{\memUChead{##1}}{}}%
-%     \def\tocmark{\markboth{\memUChead{\contentsname}}{\memUChead{\contentsname}}}%
-%     \def\lofmark{\markboth{\memUChead{\listfigurename}}{\memUChead{\listfigurename}}}%
-%     \def\lotmark{\markboth{\memUChead{\listtablename}}{\memUChead{\listtablename}}}%
-%     \def\bibmark{\markboth{\memUChead{\bibname}}{\memUChead{\bibname}}}%
-%     \def\indexmark{\markboth{\memUChead{\indexname}}{\memUChead{\indexname}}}%
-%     \def\sectionmark##1{\markright{\memUChead{##1}}}}
-%   \makepsmarks{customheadings}{%
-%     \createmark{chapter}{left}{nonumber}{}{}
-%     \createmark{section}{right}{nonumber}{}{}
-%     \createplainmark{toc}{both}{\contentsname}
-%     \createplainmark{lof}{both}{\listfigurename}
-%     \createplainmark{lot}{both}{\listtablename}
-%     \createplainmark{bib}{both}{\bibname}
-%     \createplainmark{index}{both}{\indexname}
-%     \createplainmark{glossary}{both}{\glossaryname}
-%   }
-%   \makeevenhead{customheadings}{}{\fontfamily{laudatio-light}\fontseries{m}\fontshape{n}\selectfont\tiny\leftmark}{}
-%   \makeoddhead{customheadings}{}{\fontfamily{laudatio-light}\fontseries{m}\fontshape{n}\selectfont\tiny\rightmark}{}
-%   \makeevenfoot{customheadings}{}{\thepage}{}
-%   \makeoddfoot{customheadings}{}{\thepage}{}
-% 
-% \pagestyle{customheadings}
-
 
 \makepagestyle{customheadings}
   \makepsmarks{customheadings}{%
@@ -215,8 +193,8 @@ outer=20mm
     \createplainmark{index}{both}{\indexname}
     \createplainmark{glossary}{both}{\glossaryname}
   }
-  \makeevenhead{customheadings}{}{\fontfamily{arno-pro}\fontseries{m}\fontshape{it}\selectfont\small \bookTitle}{}
-  \makeoddhead{customheadings}{}{\fontfamily{arno-pro}\fontseries{m}\fontshape{it}\selectfont\small \leftmark}{}
+  \makeevenhead{customheadings}{}{\ArnoProFont\itshape\small \bookTitle}{}
+  \makeoddhead{customheadings}{}{\ArnoProFont\itshape\selectfont\small \leftmark}{}
   \makeevenfoot{customheadings}{}{{\color{textbody}\thepage}}{}
   \makeoddfoot{customheadings}{}{{\color{textbody}\thepage}}{}
 
@@ -264,9 +242,9 @@ outer=20mm
 %   \addtolength{\beforechapskip}{\baselineskip}
   \setlength{\midchapskip}{2\baselineskip}
   \setlength{\afterchapskip}{2em}
-  \renewcommand*{\chapnumfont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\chapnamesize}
-  \renewcommand*{\chapnamefont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont}
-  \renewcommand*{\chaptitlefont}{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\chaptitlesize}
+  \renewcommand*{\chapnumfont}{\ArnoProFont\chapnamesize}
+  \renewcommand*{\chapnamefont}{\ArnoProFont}
+  \renewcommand*{\chaptitlefont}{\ArnoProFont\chaptitlesize}
   \renewcommand*{\printchaptername}{}
   \renewcommand*{\printchapternum}{\chapnumfont\color{chapternum}\raggedright\hspace*{17pt}\thechapter}
 %   \renewcommand*{\printchapternonum}{\centering}
@@ -286,7 +264,7 @@ outer=20mm
 \newcommand{\sectiontitlesize}{\@setfontsize\chapnamesize{11.5}{18}}
 \setlength{\beforesecskip}{3\baselineskip}
 
-\setsecheadstyle{\fontfamily{arno-pro}\fontseries{m}\fontshape{n}\selectfont\sectiontitlesize\color{chapter}\MakeUppercase}
+\setsecheadstyle{\ArnoProFont\sectiontitlesize\color{chapter}\MakeUppercase}
 \setsubsecheadstyle{\large\itshape\memRTLraggedright}
 \setsubsubsecheadstyle{\normalsize\itshape\memRTLraggedright}
 
