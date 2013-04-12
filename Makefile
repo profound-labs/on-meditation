@@ -13,8 +13,8 @@ book:
 twice:
 	$(LATEX) $(LATEX_OPTS) $(FILE).tex && $(LATEX) $(LATEX_OPTS) $(FILE).tex;
 
-view:
-	evince $(FILE).pdf &
+print-specs:
+	org-ruby print-specs.org --translate textile | pandoc --from=textile --to=odt -o print-specs.odt;
 
 clean:
 	+rm -fv $(FILE).{dvi,ps,pdf,aux,log,bbl,blg}

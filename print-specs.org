@@ -1,0 +1,16 @@
+#+TITLE: Print Specs for On Meditation
+
+* Print Specs for On Meditation
+ 
+| Title:               | On Meditation                 |
+| Language:            | English                       |
+| Author:              | Ajahn Chah                    |
+| Page width:          | 5.25in                        |
+| Page height:         | 8in                           |
+| Spine width:         | n/a                           |
+| Mainmatter:          | 58 pages                      |
+| Mainmatter material: | cream 70gsm                   |
+| Cover finishing:     | Matt                          |
+| Cover material:      | 300gsm 2 side coated art card |
+| Binding:             | saddle stitch                 |
+
