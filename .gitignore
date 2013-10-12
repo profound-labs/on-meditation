@@ -8,5 +8,7 @@ book_main.pdf
 cover.pdf
 print-specs.odt
 auto/
+docs/
+temp/
 src-for-epub/
 pdf-keep/proofing/
